@@ -114,15 +114,17 @@ $(function() {
         
         // loadFeed() and set the feedContent to the value of what was loaded at index 0
         // then loadFeed for the 2nd index and complete
+        
         beforeEach(function(done) {
             loadFeed(0, function() {
                 feedContent = $('.feed').html();
-                loadFeed(1, done());
+                loadFeed(1, done);
             });
         });
         
         // since the loaded content was appended, make sure that the original html is 
-        // not equal (which means nothing was added)
+        // not equal, which means nothing was added
+        
         it('has been loaded', function(){
             expect($('.feed').html()).not.toEqual(feedContent);
         });
