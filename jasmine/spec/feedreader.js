@@ -95,7 +95,8 @@ $(function() {
                 feedContent = $('.feed .entry');
                 done();
                 }
-            )});
+            );
+        });
 
         it('check for feed content', function(){
             expect(feedContent.length).toBeGreaterThan(0);
@@ -118,7 +119,9 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 feedContent = $('.feed').html();
-                loadFeed(1, done);
+                loadFeed(1, function() {
+                    done();
+                });
             });
         });
         
